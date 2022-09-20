@@ -12,7 +12,7 @@ export const AppContainer = styled.div`
 
 export const ColumnContainer = styled.div`
   background-color: #ebecf0;
-  width: 272px;
+  width: 300px;
   min-height: 40px;
   margin-right: 20px;
   border-radius: 3px;
@@ -30,7 +30,7 @@ export const CardContainer = styled.div`
   cursor: pointer;
   margin-bottom: 0.5rem;
   padding: 0.5rem 1rem;
-  max-width: 272px;
+  max-width: 300px;
   border-radius: 3px;
   box-shadow: #091e4240 0px 1px 0px 0px;
 `;
@@ -45,7 +45,7 @@ export const AddItemButton = styled.button<AddItemButtonProps>`
   border: none;
   color: ${(props) => (props.dark ? "#000" : "#fff")};
   cursor: pointer;
-  max-width: 272px;
+  max-width: 300px;
   padding: 10px 12px;
   text-align: left;
   transition: background-color 85ms ease-in;
@@ -56,14 +56,15 @@ export const AddItemButton = styled.button<AddItemButtonProps>`
 `;
 
 export const NewItemFormContainer = styled.div`
-  max-width: 272px;
+  max-width: 300px;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
 `;
 export const NewItemButton = styled.div`
-  background-color: "#5aac44";
+  background-color: #5aac44;
   border: none;
   border-radius: 3px;
   box-shadow: none;
@@ -73,7 +74,8 @@ export const NewItemButton = styled.div`
 `;
 
 export const NewItemInput = styled.input`
-  border: 3px;
+  border-radius: 3px;
+  max-width: 268px;
   border: none;
   box-shadow: #091e4240 0px 1px 0px 0px;
   margin-bottom: 0.5rem;
