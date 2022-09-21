@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { App } from "./App";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend as Backend } from "react-dnd-html5-backend";
 import { AppStateProvider } from "./state/AppStateContext";
 import { Action } from "./state/actions";
 
@@ -10,17 +12,21 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <AppStateProvider
-      lists={[]}
-      getTasksByListId={function (id: string): { id: string; text: string }[] {
-        throw new Error("Function not implemented.");
-      }}
-      dispatch={function (value: Action): void {
-        throw new Error("Function not implemented.");
-      }}
-    >
-      <App />
-    </AppStateProvider>
+    <DndProvider backend={Backend}>
+      <AppStateProvider
+        lists={[]}
+        getTasksByListId={function (
+          id: string
+        ): { id: string; text: string }[] {
+          throw new Error("Function not implemented.");
+        }}
+        dispatch={function (value: Action): void {
+          throw new Error("Function not implemented.");
+        }}
+      >
+        <App />
+      </AppStateProvider>
+    </DndProvider>
   </React.StrictMode>
 );
 
