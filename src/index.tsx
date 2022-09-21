@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { App } from "./App";
 import { AppStateProvider } from "./state/AppStateContext";
+import { Action } from "./state/actions";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,6 +13,9 @@ root.render(
     <AppStateProvider
       lists={[]}
       getTasksByListId={function (id: string): { id: string; text: string }[] {
+        throw new Error("Function not implemented.");
+      }}
+      dispatch={function (value: Action): void {
         throw new Error("Function not implemented.");
       }}
     >
