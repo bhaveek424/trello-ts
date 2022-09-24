@@ -12,7 +12,7 @@ export const CustomDragLayer = () => {
   return draggedItem && currentOffset ? (
     <CustomDragLayerContainer>
       <DragPreviewWrapper position={currentOffset}>
-        <Column id={draggedItem.id} text={draggedItem.text} isPreview />
+        <Column id={draggedItem.id} text={draggedItem.text} isPreview={true} />
       </DragPreviewWrapper>
     </CustomDragLayerContainer>
   ) : null;
