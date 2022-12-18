@@ -54,6 +54,30 @@ export const appStateReducer = (
       draft.draggedItem = action.payload;
       break;
     }
+
+    case "MOVE_TASK": {
+      const { draggedItemId, hoveredItemId, sourceColumnId, targetColumnId } =
+        action.payload;
+
+      const sourceListIndex = findItemIndexById(draft.lists, sourceColumnId);
+      const targetListIndex = findItemIndexById(draft.lists, targetColumnId);
+      const dragIndex = findItemIndexById(
+        draft.lists[sourceListIndex].tasks,
+        draggedItemId
+      );
+
+      const hoverIndex = hoveredItemId
+        ? findItemIndexById(draft.lists[targetListIndex].tasks, hoveredItemId)
+        : 0;
+
+      const item = draft.lists[sourceListIndex].tasks[dragIndex];
+
+      // Remove task from the source list
+      draft.lists[sourceListIndex].tasks.splice(dragIndex, 1);
+
+      // Add the task to the target list
+      draft.lists[targetListIndex].tasks.splice(hoverIndex, 0, item);
+    }
   }
   // here we call the state a draft, because we are usign Immer and we'll mutate this object directly
   //this way we remind ourselves that this is not a regular reducer state and we dont have to worry about the immutability
