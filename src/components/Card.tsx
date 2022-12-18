@@ -17,7 +17,7 @@ type CardProps = {
 export const Card = ({ text, id, columnId, isPreview }: CardProps) => {
   const { draggedItem, dispatch } = useAppState();
   const ref = useRef<HTMLDivElement>(null);
-  const { drag } = useItemDrag({ type: "CARD", id, text, index, columnId });
+  const { drag } = useItemDrag({ type: "CARD", id, text, columnId });
   const [, drop] = useDrop({
     accept: "CARD",
     hover: throttle(200, () => {
@@ -39,7 +39,7 @@ export const Card = ({ text, id, columnId, isPreview }: CardProps) => {
 
   return (
     <CardContainer
-      isHidden={isHidden(isPreview, draggedItem, "CARD", id, isPreview)}
+      isHidden={isHidden(draggedItem, "CARD", id)}
       isPreview={isPreview}
       ref={ref}>
       {text}
