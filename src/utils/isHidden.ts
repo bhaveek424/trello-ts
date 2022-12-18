@@ -4,7 +4,7 @@ export const isHidden = (
   draggedItem: DragItem | null,
   itemType: string,
   id: string,
-  isPreview?: boolean
+  isPreview?: boolean | undefined
 ): boolean => {
   return Boolean(
     !isPreview &&
