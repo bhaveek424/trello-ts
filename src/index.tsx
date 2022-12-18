@@ -23,8 +23,7 @@ root.render(
         dispatch={function (value: Action): void {
           throw new Error("Function not implemented.");
         }}
-        draggedItem={null}
-      >
+        draggedItem={null}>
         <App />
       </AppStateProvider>
     </DndProvider>
